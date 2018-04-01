@@ -2,35 +2,25 @@
 
 const path = require('path');
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 
 module.exports = {
     //入口
     entry:{
         app: [ 
-            path.join(__dirname,'src/index.js')
-        ],
-        vendor: [
-            'react', 
-            'react-router-dom', 
-            'redux', 
-            'react-dom', 
-            'react-redux',
-            'redux-thunk'
+            path.join(__dirname,'src/lib/index.js')
         ]
     }, 
     output: {
         path: path.join(__dirname, './dist'),
         // 输出到dist文件夹
-        filename: '[name].[chunkhash].js',
-        chunkFilename: '[name].[chunkhash].js',
+        filename: 'react-image-viewer-mobile.js',
         // publicPath : '/'
-    },
-    devtool: 'cheap-module-source-map',
+        library: 'react-image-viewer-mobile',
+        libraryTarget: 'umd',
+        libraryExport: 'default'
+    },    
     module: {
         rules: [
             {
@@ -39,18 +29,10 @@ module.exports = {
                 include: path.join(__dirname, './src')
             },{
                 test: /\.css$/,
-                // loader: 'style-loader!css-loader!postcss-loader',
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ["css-loader", "postcss-loader"]
-                })
+                loader: 'style-loader!css-loader!postcss-loader'               
             },{
                 test: /\.scss$/,
-                // loader: 'style-loader!css-loader!postcss-loader!sass-loader'
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ["css-loader", "postcss-loader","sass-loader"]
-                })
+                loader: 'style-loader!css-loader!postcss-loader!sass-loader'              
             },{
                 test: /\.(jpg|gif|png)$/,
                 use: {
@@ -62,34 +44,34 @@ module.exports = {
             }
         ]
     },
+    externals: [
+        {
+            react: {
+                root: 'React',
+                commonjs2: 'react',
+                commonjs: 'react',
+                amd: 'react'
+            },
+            'react-dom': {
+                root: 'ReactDom',
+                commonjs2: 'react-dom',
+                commonjs: 'react-dom',
+                amd: 'react-dom'
+            }
+        }
+    ],
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             }
-        }),        
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.join(__dirname, 'src/index.tpl.html')
         }),
-         new CleanWebpackPlugin(['dist/*.*'],{
+        new CleanWebpackPlugin(['dist/*.*'],{
             root: path.join(__dirname,"./"),
             verbose: true,
             dry: false
-        }),
-        new ExtractTextPlugin({
-            filename: '[name].[contenthash:5].css',
-            allChunks: true
-        }),
-        new webpack.HashedModuleIdsPlugin(),
-        new webpack.optimize.CommonsChunkPlugin({   //引用资源单独打包
-            name: 'vendor'
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'runtime'
-        }),
-        new UglifyJSPlugin()
-        
+        }),        
+        // new UglifyJSPlugin()       
        
     ]
 }
