@@ -9,7 +9,7 @@ class News extends React.Component {
         <div>
           <ImagePreviewer 
             async={false}             /*图片内容是否异步*/
-            imageWrapperHeght={300}  /*图片容器高度*/
+            imageWrapperHeight={300}  /*图片容器高度*/
             opacity={1}          /*背景透明度*/
             zIndex={1000}           /*图层层级*/
             gap={10}                 /*图片间隙*/

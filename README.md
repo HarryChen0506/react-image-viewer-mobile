@@ -25,7 +25,7 @@ class News extends React.Component {
         <div>
           <ImagePreviewer 
             async={false}             /*图片内容是否异步*/
-            imageWrapperHeght={300}  /*图片容器高度*/
+            imageWrapperHeight={300}  /*图片容器高度*/
             opacity={1}          /*背景透明度*/
             zIndex={1000}           /*图层层级*/
             gap={10}                 /*图片间隙*/
@@ -71,7 +71,7 @@ The demo can be launched on local machine via `webpack-dev-server`. Run the foll
 | zIndex | the depth of the layer | Number | 1000 | 图层层级 |
 | gap | the gap between images | Number | 10 | 图片间隙 |
 | opacity | the backgroup modal's opacity | Number | 1 | 背景透明度 |
-| imageWrapperHeght | the height of image wrapper | Number | 300 | 图片容器高度 |
+| imageWrapperHeight | the height of image wrapper | Number | 300 | 图片容器高度 |
 
 ### Reference
 - [react-wx-images-viewer](https://github.com/react-ld/react-wx-images-viewer)

@@ -12,7 +12,7 @@ class viewerContainer extends React.Component {
     super(...args);     
     this.imageContainerSize = {         
       width: screenWidth, //图片容器宽度
-      height: this.props.imageWrapperHeght,      
+      height: this.props.imageWrapperHeight,      
     }  
   }
   componentDidMount(){   

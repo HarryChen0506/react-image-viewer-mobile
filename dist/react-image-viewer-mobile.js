@@ -306,14 +306,14 @@ var ImagePreviewer = function (_React$Component) {
 
 ImagePreviewer.propTypes = {
   async: _propTypes2.default.bool.isRequired, // 内容是否异步，必须
-  imageWrapperHeght: _propTypes2.default.number,
+  imageWrapperHeight: _propTypes2.default.number,
   opacity: _propTypes2.default.number,
   zIndex: _propTypes2.default.number,
   gap: _propTypes2.default.number
 };
 ImagePreviewer.defaultProps = {
   async: true,
-  imageWrapperHeght: 300,
+  imageWrapperHeight: 300,
   opacity: 1,
   zIndex: 1000,
   gap: 10
@@ -608,7 +608,7 @@ var viewerContainer = function (_React$Component) {
 
     _this.imageContainerSize = {
       width: screenWidth, //图片容器宽度
-      height: _this.props.imageWrapperHeght
+      height: _this.props.imageWrapperHeight
     };
     return _this;
   }

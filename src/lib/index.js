@@ -119,14 +119,14 @@ class ImagePreviewer extends React.Component {
 }
 ImagePreviewer.propTypes = {
     async: PropTypes.bool.isRequired, // 内容是否异步，必须
-    imageWrapperHeght: PropTypes.number, 
+    imageWrapperHeight: PropTypes.number, 
     opacity:PropTypes.number,
     zIndex:PropTypes.number,
     gap:PropTypes.number,
 }
 ImagePreviewer.defaultProps = {
   async: true,
-  imageWrapperHeght: 300,
+  imageWrapperHeight: 300,
   opacity:1,
   zIndex: 1000,
   gap: 10,
