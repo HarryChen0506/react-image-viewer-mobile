@@ -2,7 +2,7 @@
 
 A ReactJS image Viewer Component for mobile
 一款基于react的图片预览组件，特别适合于异步获取的富文本中的图片，点击图片即可全屏显示，并且带有轮播效果。
-
+![image](https://github.com/HarryChen0506/react-ticket/blob/master/demo/image-viewer.gif)
 
 ### Install
 
@@ -67,7 +67,6 @@ The demo can be launched on local machine via `webpack-dev-server`. Run the foll
 | --- | --- | --- | --- | --- |
 | async | images is async? | Boolean | false | 图片内容是否异步 |
 | zIndex | the depth of the layer | Number | 1000 | 图层层级 |
-| index | show which image in urls array when open | Number | 0 | |
 | gap | the gap between images | Number | 10 | 图片间隙 |
 | opacity | the backgroup modal's opacity | Number | 1 | 背景透明度 |
 | imageWrapperHeght | the height of image wrapper | Number | 300 | 图片容器高度 |
