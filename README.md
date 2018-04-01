@@ -67,7 +67,7 @@ The demo can be launched on local machine via `webpack-dev-server`. Run the foll
 
 | Property | Description | Type | default | Remarks |
 | --- | --- | --- | --- | --- |
-| async | images is async? | Boolean | false | 图片内容是否异步 |
+| async | is images async? | Boolean | false | 图片内容是否异步 |
 | zIndex | the depth of the layer | Number | 1000 | 图层层级 |
 | gap | the gap between images | Number | 10 | 图片间隙 |
 | opacity | the backgroup modal's opacity | Number | 1 | 背景透明度 |
