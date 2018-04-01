@@ -2,7 +2,7 @@
 
 A ReactJS image Viewer Component for mobile
 一款基于react的图片预览组件，特别适合于异步获取的富文本中的图片，点击图片即可全屏显示，并且带有轮播效果。
-![image](https://github.com/HarryChen0506/react-ticket/blob/master/demo/image-viewer.gif)
+![image](https://github.com/HarryChen0506/react-image-viewer-mobile/blob/master/demo/image-viewer.gif) 
 
 ### Install
 
