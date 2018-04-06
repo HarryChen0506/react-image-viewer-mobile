@@ -189,7 +189,7 @@ class ImageContainer extends React.Component {
                                         padding: `0 ${gap}px`
                                        }}
                             >                            
-                                {v.src?<Image src={v.src} width={v.width} height={v.height} />:(<span>loading</span>)}
+                                {v.src?<Image src={v.src} />:(<span>loading</span>)}
                             </li>                        
                         )
                     })}

@@ -10,9 +10,12 @@ class ImagePreviewer extends React.Component {
   constructor(...args){
     super(...args);
     this.async = this.props.async;
+    this.hasUpdate = false
     // console.log('async', this.async);
     this.div = document.createElement('div');
     this.imageNodeList = [];
+    this.wrapperNode = null;
+    this.imageBindFunc = this.imageBindFunc.bind(this);
     this.state = {
         showViewer: false,
         curImageIndex: 0,
@@ -24,7 +27,7 @@ class ImagePreviewer extends React.Component {
     if(!this.async){  //如果同步则挂载执行
         this.init()
     }
-    document.body.appendChild(this.div);
+    document.body.appendChild(this.div);    
   }
   componentWillUnmount(){
     // console.log('unmount')
@@ -41,34 +44,30 @@ class ImagePreviewer extends React.Component {
             src: v.src,
             title: v.title
           }
-      })
-      // console.log('imageList', imageList)
+      })      
       this.setState({
         imageList: imageList
       })
   }
   bindImages(){
-      //给每张图片绑定事件
-      this.imageNodeList = this.getChildrenImages();
-      this.imageNodeList.forEach((v,i)=>{
-          this.bindEvent(v, 'click',this.clickImageListener.call(this, i))
-      })
+      //给每张图片绑定事件    
+      this.wrapperNode = ReactDOM.findDOMNode(this.el);
+      this.bindEvent(this.wrapperNode, 'click', this.imageBindFunc)
   } 
-  unbindImages(){
-     //解绑
-      this.imageNodeList.forEach((v,i)=>{
-          this.unbindEnent(v, 'click',this.clickImageListener.call(this, i))
-      })
+  imageBindFunc(e){
+    const imageNodeList = this.getChildrenImages();
+    if(e.target.tagName==='IMG'){      
+      const imageIndex = [].indexOf.call(imageNodeList, e.target);
+      this.handleClickImage(imageIndex)
+    }
   }
-  clickImageListener(index){ 
-    return ()=>{
-      this.handleClickImage(index);
-    }   
+  unbindImages(){
+     //解绑   
+      this.unbindEnent(this.wrapperNode, 'click', this.imageBindFunc)    
   }
   getChildrenImages(){
     const node = ReactDOM.findDOMNode(this.el);
     const images = node.querySelectorAll('img');
-    // console.log('images', images)  
     return images 
   }
   bindEvent(node, eventType, listener){
@@ -94,14 +93,15 @@ class ImagePreviewer extends React.Component {
     this.showViewer();
   }
   componentDidUpdate(){
-    //  console.log('viewer组件接受props');
-     if(this.async){  //如果异步则更新执行
+    //  console.log('viewer组件接受props改变');
+     if(this.async&&!this.hasUpdate){  //如果异步则更新执行
+        this.hasUpdate = true;
         this.init()
      }
   }
   render() {    
     return (
-      <div ref={(el) => this.el = el}>       
+      <div ref={(el) => this.el = el}>   
         {this.props.children}
         { ReactDOM.createPortal(
             <ViewerContainer 

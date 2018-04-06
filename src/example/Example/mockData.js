@@ -1,6 +1,5 @@
 // 富文本数据
-const mockData = {
-    
+const mockData = {    
     text: `
         <img alt=\"\" src=\"https://img2.tking.cn/assets/img/j4644BdWGa.jpg\"><br>
         ——创作横扫欧洲大陆、爱尔兰、荷兰、葡萄牙、瑞典、加拿大和美国流行乐告示牌的旷世神曲“You’re Beautiful”<br>

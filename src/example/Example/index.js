@@ -10,17 +10,18 @@ class Example extends React.Component {
   constructor(...args){
     super(...args)
     this.state = {
-        content: MockData.text
+        // content: MockData.text
+        content: '<h2 id="box">正在加载异步内容，请稍等三秒...</h2>'
     }
   }
   componentDidMount(){
       console.log('容器挂载了');
-    //   this.changeContent();
+      this.changeContent();
   }
   changeContent(){
     setTimeout(()=>{
         this.setState({
-            content: '<h2 id="box">345</h2>'
+            content: MockData.text
         })
     },3000)
   }

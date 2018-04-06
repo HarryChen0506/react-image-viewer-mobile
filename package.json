@@ -31,7 +31,8 @@
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
   },
-  "dependencies": {    
+  "dependencies": {
+    "nuka-carousel": "^4.0.3",
     "prop-types": "^15.6.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
