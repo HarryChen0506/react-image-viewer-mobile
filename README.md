@@ -9,7 +9,7 @@ A ReactJS image Viewer Component for mobile
 ### Install
 
 ```
-npm install react-image-viewer-mobile
+npm install react-image-viewer-mobile --save
 ```
 
 ### Example
@@ -24,7 +24,7 @@ class News extends React.Component {
     return (      
         <div>
           <ImagePreviewer 
-            async={false}             /*图片内容是否异步*/
+            async={true}             /*图片内容是否异步*/
             imageWrapperHeight={300}  /*图片容器高度*/
             opacity={1}          /*背景透明度*/
             zIndex={1000}           /*图层层级*/
@@ -72,6 +72,11 @@ The demo can be launched on local machine via `webpack-dev-server`. Run the foll
 | gap | the gap between images | Number | 10 | 图片间隙 |
 | opacity | the backgroup modal's opacity | Number | 1 | 背景透明度 |
 | imageWrapperHeight | the height of image wrapper | Number | 300 | 图片容器高度 |
+
+### version
+#### v1.1.0 
+- fixbug 异步内容update导致的溢出
+- 轮播组件更换成更加流畅的nuka-carousel
 
 ### Reference
 - [react-wx-images-viewer](https://github.com/react-ld/react-wx-images-viewer)
