@@ -1,6 +1,6 @@
 {
   "name": "react-image-viewer-mobile",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "a react component for view images in mobile",
   "main": "./dist/react-image-viewer-mobile.js",
   "scripts": {
