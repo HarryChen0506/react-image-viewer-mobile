@@ -1323,6 +1323,7 @@ var ImagePreviewer = function (_React$Component) {
     key: 'unbindImages',
     value: function unbindImages() {
       //解绑   
+      this.wrapperNode = _reactDom2.default.findDOMNode(this.el);
       this.unbindEnent(this.wrapperNode, 'click', this.imageBindFunc);
     }
   }, {

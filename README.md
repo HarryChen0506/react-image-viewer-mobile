@@ -77,6 +77,8 @@ The demo can be launched on local machine via `webpack-dev-server`. Run the foll
 #### v1.1.0 
 - fixbug 异步内容update导致的溢出
 - 轮播组件更换成更加流畅的nuka-carousel
+#### v1.1.1
+- fixbug 组件componentWillUnmount时解绑报错
 
 ### Reference
 - [react-wx-images-viewer](https://github.com/react-ld/react-wx-images-viewer)
